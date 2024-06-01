@@ -2,6 +2,7 @@ from Dialog.XMLSelecterDialog import XMLSelecterDialog
 from Dialog.LPLSelecterDialog import LPLSelecterDialog
 from Parser.XMLParser import XMLParser
 from Parser.LPLParser import LPLParser
+from Process.JsonOutput import JsonOutput
 import PySimpleGUI as sg
 
 
@@ -88,7 +89,10 @@ while True:
         xmlDic = instance.XMLParser(xmlPath)
    
         instance = LPLParser()
-        lplDic = instance.LPLParser(lplPath)                   
+        lplDic = instance.LPLParser(lplPath)
+        
+        instance = JsonOutput()
+        instance.JsonOutput(lplPath, xmlDic, lplDic)               
    
     window.refresh()                    # 画面更新
 
