@@ -21,8 +21,8 @@ class XMLParser:
                 for gran in child:
                     altName:str = gran.get('name_alt')  # type: ignore
                     break
-
-                xmlDic[atrb] = altName
+                if altName is not None:
+                    xmlDic[atrb] = altName
                  
             return xmlDic        
                     

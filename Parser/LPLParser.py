@@ -1,3 +1,4 @@
+import os
 import json
 import shutil
 
@@ -7,9 +8,21 @@ class LPLParser:
         pass
 
     # plp(json)の解析
-    def LPLParser(self, lplPath:str):
+    def LPLParser(self, lplPath:str) -> dict:
+      
+        i:int = 1
 
-        shutil.copy(lplPath, lplPath + '.bk')
+        while True:
+            
+            if os.path.isfile(lplPath + str(i) + '.bk'):
+                i += 1
+            else:
+                break
+
+        # 既存ファイルのバックアップ
+        shutil.copy(lplPath, lplPath + str(i) + '.bk')
         # 既存ファイルの読み込み
-        with open(lplPath, encoding='UTF-8') as reader:    
-            data_lines = reader.read()
+        lplData = open(lplPath, mode='r', encoding='UTF-8')
+        lplJson = json.load(lplData)
+
+        return lplJson       

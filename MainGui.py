@@ -88,7 +88,7 @@ while True:
         xmlDic = instance.XMLParser(xmlPath)
    
         instance = LPLParser()
-        instance.LPLParser(lplPath)                   
+        lplDic = instance.LPLParser(lplPath)                   
    
     window.refresh()                    # 画面更新
 
