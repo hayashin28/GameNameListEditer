@@ -1,6 +1,7 @@
 from Dialog.XMLSelecterDialog import XMLSelecterDialog
 from Dialog.LPLSelecterDialog import LPLSelecterDialog
 from Parser.XMLParser import XMLParser
+from Parser.LPLParser import LPLParser
 import PySimpleGUI as sg
 
 
@@ -72,18 +73,22 @@ while True:
     elif event == 'XMLBTN':
         instance = XMLSelecterDialog()
         path = instance.XMLSelecterDialog()        
-        window['XMLPATH'].Update(path)  # テキスト追記 # type: ignore 
+        window['XMLPATH'].Update(path)  # テキスト追記  # type: ignore 
                    
     elif event == 'LPLBTN':
         instance = LPLSelecterDialog()
         path = instance.LPLSelecterDialog()
-        window['LPLPATH'].Update(path)  # テキスト追記 # type: ignore 
+        window['LPLPATH'].Update(path)  # テキスト追記  # type: ignore 
 
     elif event == 'REPBTN':
         xmlPath = values['XMLPATH']
         lplPath = values['LPLPATH']
+        
         instance = XMLParser()
-        instance.XMLParser(xmlPath, lplPath)
+        xmlDic = instance.XMLParser(xmlPath)
+   
+        instance = LPLParser()
+        instance.LPLParser(lplPath)                    # type: ignore
    
     window.refresh()                    # 画面更新
 
