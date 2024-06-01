@@ -6,7 +6,7 @@ class XMLParser:
             pass
     
         # xmlの解析
-        def XMLParser(self, xmlPath:str):
+        def XMLParser(self, xmlPath:str) -> dict[str, str]:
  
             tree = ET.parse(xmlPath)
             root = tree.getroot()

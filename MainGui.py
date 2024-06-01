@@ -73,12 +73,12 @@ while True:
     elif event == 'XMLBTN':
         instance = XMLSelecterDialog()
         path = instance.XMLSelecterDialog()        
-        window['XMLPATH'].Update(path)  # テキスト追記  # type: ignore 
+        window['XMLPATH'].Update(path)  # テキスト追記 # type: ignore 
                    
     elif event == 'LPLBTN':
         instance = LPLSelecterDialog()
         path = instance.LPLSelecterDialog()
-        window['LPLPATH'].Update(path)  # テキスト追記  # type: ignore 
+        window['LPLPATH'].Update(path)  # テキスト追記 # type: ignore
 
     elif event == 'REPBTN':
         xmlPath = values['XMLPATH']
@@ -88,7 +88,7 @@ while True:
         xmlDic = instance.XMLParser(xmlPath)
    
         instance = LPLParser()
-        instance.LPLParser(lplPath)                    # type: ignore
+        instance.LPLParser(lplPath)                   
    
     window.refresh()                    # 画面更新
 
