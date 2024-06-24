@@ -17,4 +17,4 @@ class JsonOutput:
 
         # JSONデータをファイルに書き込み
         with open(lplPath + '.json' , 'w', encoding='utf-8') as file:
-            json.dump(lplDic, file, ensure_ascii=False, indent=4, sort_keys=True, separators=(',', ': '))
+            json.dump(lplDic, file, ensure_ascii=False, indent=4, sort_keys=False, separators=(',', ': '))
